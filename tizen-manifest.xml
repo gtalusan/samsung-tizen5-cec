@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="6.0" package="EdidServi5" version="1.0.0">
+  <profile name="common" />
+  <!-- package/appid deliberately kept as EdidServi5 for identity stability
+       on TVs where an earlier build is already installed (see README). -->
+  <service-application appid="EdidServi5.NameSvc" exec="CecService.dll" type="dotnet" multiple="false" taskmanage="false" nodisplay="true" on-boot="true">
+    <label>CecService</label>
+    <icon>CecService.png</icon>
+  </service-application>
+  <!-- The only launch trigger this platform honors: a key rule.
+       Long-press Exit (3s). Multi-target rules, app-selector rules and
+       on-boot are ignored by the Tizen 5.5 installer/engine - see README. -->
+  <app-context appid="EdidServi5.NameSvc">
+    <app-context-rule>
+      <source selector="key" longpress="3000">XF86Exit</source>
+      <target selector="app" request="launch">EdidServi5.NameSvc</target>
+    </app-context-rule>
+  </app-context>
+  <shortcut-list />
+  <privileges>
+  </privileges>
+</manifest>

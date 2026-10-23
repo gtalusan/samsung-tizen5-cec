@@ -1,0 +1,4 @@
+bin/
+obj/
+*.tpk
+.DS_Store
